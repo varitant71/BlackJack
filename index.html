@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blackjack</title>
+  <!-- Card images: htdebeer/SVG-cards (LGPL) https://github.com/htdebeer/SVG-cards -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="game-container">
+    <header class="header">
+      <h1 class="title">Blackjack</h1>
+      <div class="header-stats">
+        <div class="balance-display">
+          <span class="label">잔액</span>
+          <span id="balance" class="value">1,000</span>
+        </div>
+        <div class="stats-display">
+          <span id="stat-wins">승 0</span>
+          <span id="stat-losses">패 0</span>
+          <span id="stat-pushes">무 0</span>
+          <span id="stat-streak">연승 0</span>
+          <span id="stat-deck">카드 208 / 208</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="table">
+      <section class="hand-area dealer-area">
+        <div class="hand-label">
+          <div class="hand-info-left">
+            <span>딜러</span>
+            <span id="dealer-score" class="score"></span>
+          </div>
+        </div>
+        <div id="dealer-cards" class="cards"></div>
+      </section>
+
+      <div id="message-overlay" class="message-overlay hidden"></div>
+
+      <section id="player-hands" class="player-hands"></section>
+    </main>
+
+    <footer class="controls">
+      <div id="betting-panel" class="betting-panel">
+        <span class="panel-label">베팅</span>
+        <div class="chip-buttons">
+          <button class="chip-btn" data-bet="10">10</button>
+          <button class="chip-btn" data-bet="50">50</button>
+          <button class="chip-btn" data-bet="100">100</button>
+          <button class="chip-btn" data-bet="500">500</button>
+        </div>
+        <div class="bet-info">
+          <span>현재 베팅: <strong id="current-bet">0</strong></span>
+          <button id="btn-deal" class="action-btn primary" disabled>딜</button>
+          <button id="btn-clear-bet" class="action-btn secondary">초기화</button>
+        </div>
+      </div>
+
+      <div id="action-panel" class="action-panel hidden">
+        <button id="btn-hit" class="action-btn">Hit</button>
+        <button id="btn-stand" class="action-btn">Stand</button>
+        <button id="btn-double" class="action-btn">Double</button>
+        <button id="btn-split" class="action-btn">Split</button>
+      </div>
+
+      <div class="utility-panel">
+        <button id="btn-new-round" class="action-btn secondary hidden">다음 라운드</button>
+        <button id="btn-reset" class="action-btn secondary">게임 리셋</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/deck.js"></script>
+  <script src="js/card-art.js"></script>
+  <script src="js/hand.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
